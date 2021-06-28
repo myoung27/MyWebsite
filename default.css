@@ -6,6 +6,12 @@
 
   --mainText:black;
   --secondaryText:#4b5156;
+
+  --themeDotBorder: #24292e;
+
+  --previewBG:rgb(251,249,243,0.8);
+
+  --previewShadow: #f0ead6;
 }
 
 
@@ -120,6 +126,8 @@ padding: 10px;
 }
 .left-column{
   grid-area: left-column;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 #profile_pic{
@@ -131,23 +139,118 @@ padding: 10px;
   border: 2px solid var(--borderColor)
 }
 
+#theme-options-wrapper{
+  display: flex;
+  justify-content: center;
+}
+
 .theme-dot{
   height: 30px;
   width: 30px;
+  background-color: black;
   border-radius: 50%;
-
+  margin: 5px;
+  border: 2px solid var(--themeDotBorder);
   -webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
   -moz-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
   box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
-
+  cursor: pointer;
 }
+
+.theme-dot:hover{
+  border-width: 5px;
+}
+#light-mode{
+  background-color: #fff;
+}
+#dark-mode{
+  background-color: #000;
+}
+#blue-mode{
+  background-color: #0000cc;
+}
+#green-mode{
+  background-color: #00cc4b;
+}
+#purple-mode{
+  background-color: #6e00cc;
+}
+
+#settings-note{
+  font-size: 12px;
+  font-style: italic;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 
 .right-column{
   grid-area: right-column;
+  display: grid;
+  align-content: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#preview-shadow{
+  background-color: var(--previewShadow);
+  width: 300px;
+  height: 120px;
+  padding-left: 30px;
+  padding-top: 30px;
+}
+
+#preview{
+  width: 300px;
+  border: 1.3px solid cyan;
+  background-color: var(--previewBG);
+  padding:15px;
+  position: relative;
+}
+
+.corner{
+  width: 7px;
+  height:7px;
+  border-radius: 50%;
+  border: 1.3px solid cyan;
+  background-color: #fff;
+  position: absolute;
+}
+#corner-tl{
+  top: -5px;
+  right: -5px;
+}
+#corner-tr{
+  top: -5px;
+  left: -5px;
+}
+#corner-bl{
+  bottom: -5px;
+  left: -5px;
+}
+#corner-br{
+  bottom: -5px;
+  right: -5px;
 }
 
 @media screen and (max-width: 1200px){
   .main-container{
     width: 95%;
   }
+}
+@media screen and (max-width: 800px){
+  .intro-wrapper{
+      
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        'nav-wrapper'
+        'left-column' 
+        'right-column'
+    ;
+  }
+
+  .right-column{
+    justify-content: center;
+  }
+
 }
